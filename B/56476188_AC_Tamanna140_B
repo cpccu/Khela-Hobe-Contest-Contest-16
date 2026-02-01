@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Read the input integer A
+read A
+
+# Loop through all numbers from 1 to A
+for ((i=1; i<=A; i++))
+do
+  # Check if i is a divisor of A
+  if (( A % i == 0 ))
+  then
+    # Print the divisor
+    echo $i
+  fi
+done

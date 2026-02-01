@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Read number of test cases
+read T
+
+# Process each test case
+for (( t=1; t<=T; t++ ))
+do
+  # Read the number of subjects
+  read N
+  
+  # Initialize total sum of grade points
+  sum=0
+  
+  # Read grade points and calculate sum
+  for (( i=1; i<=N; i++ ))
+  do
+    read p
+    sum=$(echo "$sum + $p" | bc)
+  done
+  
+  # Calculate GPA and round to 3 decimal places
+  gpa=$(echo "scale=4; $sum / $N" | bc)
+  
+  # Output the result for the current test case
+  printf "Case %d: %.3f\n" $t $gpa
+done
